@@ -1,0 +1,6 @@
+.babelrc
+./dist/**
+dist/
+./eps-dist/**
+eps-dist/
+*.font.js
