@@ -2,7 +2,7 @@
 var path = require('path');
 
 const htmlPlugin = require('html-webpack-plugin'),
-  outputPath = path.join(__dirname, 'build'),
+  outputPath = path.resolve(__dirname, 'build'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   env = process.env.NODE_ENV;
 
@@ -10,7 +10,6 @@ console.log(`run webpack now`);
 
 var config = {
   context: __dirname,
-  devtool: "inline-sourcemap",
   mode : 'development',
   entry : [
     './src/index.js',
@@ -18,8 +17,7 @@ var config = {
   ],
   output: {
     path: outputPath,
-    publicPath : '/',
-    filename: "index.js"
+    filename: 'index.js'
   },
    plugins:[ 
 
@@ -35,6 +33,7 @@ var config = {
   resolve : {
     alias : {
       actions : path.resolve('./src/users'),
+      components : path.resolve('./src/components'),
     },
     extensions : ['.js', '.jsx', '.json'],
     modules : [
@@ -68,10 +67,10 @@ var config = {
   },
   devServer : {
     outputPath : outputPath,
-    contentBase : './',
     colors : true,
     inline : true,
     publicPath : '/',
+    writeToDisk:true,
     historyApiFallback : true,
     hot : true,
     quiet : false,
@@ -91,5 +90,4 @@ var config = {
     stats : 'minimal'
   }
 };
-
 module.exports = config;

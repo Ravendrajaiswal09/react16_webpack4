@@ -6,16 +6,16 @@ const app = express();
 const port = process.env.PORT || 3100;
 const api = require('../api/api');
 
-const webpack = require('webpack');
+  const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const config = require('../../webpack.config');
+const config = require('../../webpack.config'); 
 
-const compiler = webpack(config);
+ const compiler = webpack(config);
 
-//app.use(webpackDevMiddleware(compiler, config.devServer));
-//app.use(webpackHotMiddleware(compiler));
- 
+app.use(webpackDevMiddleware(compiler, config.devServer));
+app.use(webpackHotMiddleware(compiler)); 
+
 
 // Parsers
 app.use(bodyParser.urlencoded({ extended: false }));

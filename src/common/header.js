@@ -6,9 +6,9 @@ class Header extends Component {
 
     render(){
         return (
-            <div className="navbar navbar-expand-lg fixed-top bg-primary">
+            <div className="navbar navbar-default">
                 <div className="container">
-                <a className="navbar-brand header">Bootswatch</a>
+                <a className="navbar-brand">Bootswatch</a>
                 <Link className="navbar-brand"  to={"/users"} >Users</Link>
                 <Link className="navbar-brand" to={"/post"} >Posts</Link>
                 </div>
