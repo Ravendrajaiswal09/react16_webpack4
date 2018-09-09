@@ -2,15 +2,23 @@ import axios from 'axios';
 
 const configHeader = { headers: { 'Content-Type': 'multipart/form-data' } };
 
-export const getUsers = (requestUrl, responseCallback, errorCallback) => {
-   axios.get(requestUrl)
-        .then((response) => {
-            responseCallback(response.data)
-        })
-        .catch(error => {
-            errorCallback(error)
-        });
-
+export const getUsers = (requestUrl, action) => {
+    return function(dispatch) {
+        return axios.get(requestUrl)
+            .then((response) => {
+                dispatch({
+                    type: action,
+                    response: response.data
+                })
+            })
+            .catch(error => {
+                if (error.response) {
+                    console.log(error.response.data);
+                } else if (error.request) {
+                    console.log(error.request);
+                }
+            });
+        }
 };
 
 export const addUsers = (requestUrl, action, data, configHeader) => {

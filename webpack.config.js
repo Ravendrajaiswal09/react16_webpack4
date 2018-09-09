@@ -11,6 +11,7 @@ console.log(`run webpack now`);
 var config = {
   context: __dirname,
   mode : 'development',
+  devtool: "inline-sourcemap",
   entry : [
     './src/index.js',
     './src/app.scss'
@@ -67,6 +68,7 @@ var config = {
   },
   devServer : {
     outputPath : outputPath,
+    contentBase : './',
     colors : true,
     inline : true,
     publicPath : '/',
