@@ -3,3 +3,4 @@ export const SET_USER_DATA = 'SET_USER_DATA';
 export const GET_NEW_USER_DATA='GET_NEW_USER_DATA'
 export const UPDATE_USER_DATA = 'UPDATE_USER_DATA';
 export const DELETE_USER_DATA = 'DELETE_USER_DATA'
+export const GET_ID_DATA = 'GET_ID_DATA' 

@@ -8,6 +8,8 @@ const UserReducer = (state = initialState, action)=>{
     switch (action.type) {
         case ActionConstants.GET_USER_DATA:
           return UserHelper.convertUserData(state, action); 
+        case ActionConstants.GET_ID_DATA:
+          return UserHelper.convertUserData(state, action); 
         default:
           return state;
       }

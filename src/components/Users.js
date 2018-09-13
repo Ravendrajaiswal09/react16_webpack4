@@ -24,12 +24,11 @@ class Users extends Component {
 
     render(){
        let users = this.props.userState.users
-       console.log("ddddddddddddd")
         return (
         <div>
             <h1>User</h1>
             <p>
-            <button className="btn btn-primary" onClick={() => this.addUser()}>Add User</button>
+            <button className="btn btn-primary" onClick={() =>this.addUser()}>Add User</button>
             </p>
             <table className="table table-bordered">
             <thead>

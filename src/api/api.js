@@ -15,19 +15,10 @@ router.get('/task', function(req, res, next){
         res.json(data)
     })
   })
-
-  router.get('/new_task', function(req, res, next){
-    db.collection('new_task').find().toArray(function(err, data){
-        if(err) {
-            res.send(err)
-        } 
-        res.json(data)
-    })
-  })
   
   //Get single Task
   router.get('/task/:id', function(req, res, next){
-    db.task.findOne({_id: ObjectId(req.params.id)}, function(err, data){
+    db.users.findOne({_id: ObjectId(req.params.id)}, function(err, data){
         if(err) {
             res.send(err)
         }
@@ -35,9 +26,9 @@ router.get('/task', function(req, res, next){
     })
   })
 
-    //Get single Task
+    //Delete single Task
   router.delete('/task/:id', function(req, res, next){
-    db.task.remove({_id: ObjectId(req.params.id)}, function(err, data){
+    db.users.remove({_id: ObjectId(req.params.id)}, function(err, data){
         if(err) {
             res.send(err)
         }
@@ -47,11 +38,11 @@ router.get('/task', function(req, res, next){
 
     //Post  Task
   router.post('/task', function(req, res, next){
-      var task = req.body
-       if (!task){
+      var body = req.body
+       if (!body){
             return res.status(400).send("Bad Request");
         }
-        db.task.save(task, function(err, data){
+         db.users.save(body, function(err, data){
             if(err) {
                 res.send(err)
             }
@@ -61,11 +52,11 @@ router.get('/task', function(req, res, next){
 
    //update task
   router.put('/task/:id', function(req, res, next){
-    var task = req.body
-    if(!task){
+    var body = req.body
+    if(!body){
         return res.status(400).send("Bad Request");
     } else {
-        db.task.update({_id: ObjectId(req.params.id)}, task, function(err, data){
+        db.users.update({_id: ObjectId(req.params.id)}, body, function(err, data){
             if(err) {
                 res.send(err)
             }

@@ -14,6 +14,7 @@ export default (store, history) => {
         <Route path="/" component={App} >
             <Route path="/users" component={UserContainer} />
             <Route path="/users/new" component={AddUserContainer} />
+            <Route path="/users/:id" component={AddUserContainer} />
         </Route>
       </Router> 
     </Provider>

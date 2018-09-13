@@ -11,6 +11,14 @@ export function getUserData (userId) {
    return HttpClient.getUsers(url, ActionConstants.GET_USER_DATA)
 };
 
+export function getIdData (userId) {
+    console.log(userId)
+    let url= 'http://localhost:3100/task'
+    if(userId)
+        url = url + "/" + userId;
+   return HttpClient.getUsers(url, ActionConstants.GET_ID_DATA)
+};
+
 
 
 export function setUserData (user) {

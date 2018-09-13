@@ -12,7 +12,8 @@ class UserContainer extends Component {
      }
 
  componentWillMount() {
-  // this.props.dispatcher.getUserData();
+   console.log("yaha")
+   this.props.dispatcher.getUserData();
  }
 
   onDeleteUser(id){
@@ -20,7 +21,6 @@ class UserContainer extends Component {
    this.props.dispatcher.getUserData();
  }
     render(){
-      console.log(this.props.userState)
         return (
             <Users{...this.props} onDeleteUser={this.onDeleteUser}/>
         )
