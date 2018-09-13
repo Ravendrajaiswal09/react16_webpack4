@@ -12,13 +12,12 @@ class UserContainer extends Component {
      }
 
  componentWillMount() {
-   console.log("yaha")
    this.props.dispatcher.getUserData();
  }
 
-  onDeleteUser(id){
-   this.props.dispatcher.deleteUserData(id);
-   this.props.dispatcher.getUserData();
+ async onDeleteUser(id){
+  await this.props.dispatcher.deleteUserData(id);
+  await this.props.dispatcher.getUserData();
  }
     render(){
         return (

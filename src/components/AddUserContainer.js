@@ -21,11 +21,11 @@ class AddUserContainer extends Component {
           }
     }
 
-     doSubmit(userData){
+    async doSubmit(userData){
          if (userData._id)
-            this.props.dispatcher.updateUserData(userData);
+            await this.props.dispatcher.updateUserData(userData);
          else
-            this.props.dispatcher.setUserData(userData);
+            await this.props.dispatcher.setUserData(userData);
             
         browserHistory.push('/users');
      }
