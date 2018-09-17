@@ -14,7 +14,7 @@ class Users extends Component {
         if (id)
              url = `/users/${id}`
         else
-            url = '/users/new'
+            url = '/newuser'
         browserHistory.push(url);
      }
 

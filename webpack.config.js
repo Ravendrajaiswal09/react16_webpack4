@@ -18,7 +18,8 @@ var config = {
   ],
   output: {
     path: outputPath,
-    filename: 'index.js'
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].chunk.js",
   },
    plugins:[ 
 
@@ -80,7 +81,6 @@ var config = {
     version : false,
     timings : false,
     assets : false,
-    chunks : false,
     modules : false,
     reasons : false,
     children : false,
