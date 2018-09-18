@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link, browserHistory} from 'react-router';
 import _ from 'lodash';
+import hoc from './Hoc';
+
+var newData = {
+   data:'User from HOC...',
+};
 
 class Users extends Component {
     constructor(props) {
@@ -26,7 +31,7 @@ class Users extends Component {
        let users = this.props.userState.users
         return (
         <div>
-            <h1>User</h1>
+            <h1>{this.props.searchTerm}</h1>
             <p>
             <button className="btn btn-primary" onClick={() =>this.addUser()}>Add User</button>
             </p>
@@ -59,4 +64,4 @@ class Users extends Component {
         )
     }
 }
-export default Users
+export default hoc(Users)(newData)
