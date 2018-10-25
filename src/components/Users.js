@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, browserHistory} from 'react-router';
 import _ from 'lodash';
 import hoc from './Hoc';
+import PubSub from 'pubsub-js';
 
 var newData = {
    data:'User from HOC...',
@@ -14,19 +15,21 @@ class Users extends Component {
         this.deleteUser = this.deleteUser.bind(this)
      }
 
-     addUser(id){
+     addUser(id){   
+        PubSub.publish('GET FILES', 'EAT PIE');
+        this.props.changechild();
         let url =''
         if (id)
              url = `/users/${id}`
         else
             url = '/newuser'
-        browserHistory.push(url);
+        browserHistory.push(url); 
      }
 
      deleteUser(id){
-            this.props.onDeleteUser(id)
+        this.props.onDeleteUser(id)
      }
-
+     
     render(){
        let users = this.props.userState.users
         return (
